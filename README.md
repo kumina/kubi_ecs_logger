@@ -6,6 +6,13 @@ The module implements the ECS (Elastic Common Schema) specification that
 can be found at for quick reference: 
 [ECS Field Reference](https://www.elastic.co/guide/en/ecs/current/ecs-field-reference.html#ecs-field-reference)
 
+## Install
+You can install the package from PyPi like this:
+```bash
+pip install kubi-ecs-logger
+```
+This package is only for Python 3.6 or newer.
+
 ## Usage
 ```python 
 # Import 
