@@ -1,5 +1,4 @@
 <img align="left" src="https://github.com/kumina/kubi_ecs_logger/blob/master/logo.png">
-
 This Python module makes logging easy for your application.  
 The logger outputs JSON formatted logs for ingesting into Elastic.  
 
