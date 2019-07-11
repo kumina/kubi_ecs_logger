@@ -3,7 +3,7 @@ This Python module makes logging easy for your application.
 The logger outputs JSON formatted logs for ingesting into Elastic.  
 
 The module implements the ECS (Elastic Common Schema) specification that
-can be found at for quick reference:  
+can be found at for quick reference: 
 [ECS Field Reference](https://www.elastic.co/guide/en/ecs/current/ecs-field-reference.html#ecs-field-reference)
 
 ## Usage
@@ -12,8 +12,12 @@ can be found at for quick reference:
 from kubi_ecs_logger import Logger, Severity
 
 # Set some defaults in the start of your app
+# If in development mode the lib will output formatted json.
 Logger().dev = True
+# The minimum level of severity for outputing. E.g. If set to INFO then DEBUG logs will not 
+# be printed to standard out
 Logger().severity_output_level = Severity.INFO
+# Set default key/value pairs for the different classes that will always be appended before final output
 Logger().defaults = {
     "event": {
         "test": "test value"
@@ -55,7 +59,7 @@ Logger() \
 #   "event": {
 #     "action": "request received",
 #     "category": "requests",
-#     "test": "test value"
+#     "test": "test value"  # From defaults
 #   },
 #   "httpresponse": {
 #     "status_code": "200"
