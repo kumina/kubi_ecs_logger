@@ -356,6 +356,9 @@ class Logger:
         return None
 
     def __output(self):
+        """
+        The internal function that handles/passes on the printing
+        """
         if self._dev:
             pprint(BaseSchema().dump(self._base).data, output_destination=sys.stdout)
         else:
