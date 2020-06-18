@@ -8,14 +8,14 @@ class RootSchema(Schema):
     SKIP_VALUES = [None]
 
     @post_dump
-    def remove_skip_values(self, data):
+    def remove_skip_values(self, data, many, **kwargs):
         return {
             key: value for key, value in data.items()
             if value not in self.SKIP_VALUES
         }
 
     @post_dump(pass_original=True)
-    def add_extra(self, serialized, original):
+    def add_extra(self, serialized, original, many, **kwargs):
         from kubi_ecs_logger.models.include import INCLUDE_FIELDS
 
         for k, v in original.__dict__.items():
@@ -23,7 +23,7 @@ class RootSchema(Schema):
                 type_name = str(type(v).__name__).lower()
                 if type_name in INCLUDE_FIELDS:
                     schema = INCLUDE_FIELDS[type_name].schema
-                    data = schema.dump(v).data
+                    data = schema.dump(v)
                     if "kind" not in data:
                         data["kind"] = type_name
                     serialized[k] = data

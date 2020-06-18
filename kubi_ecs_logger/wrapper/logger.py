@@ -360,9 +360,9 @@ class Logger:
         The internal function that handles/passes on the printing
         """
         if self._dev:
-            pprint(BaseSchema().dump(self._base).data, output_destination=sys.stdout)
+            pprint(BaseSchema().dump(self._base), output_destination=sys.stdout)
         else:
-            print(BaseSchema().dumps(self._base).data, file=sys.stdout)
+            print(BaseSchema().dumps(self._base), file=sys.stdout)
 
     def __append_log_level(self, severity_level: Severity):
         # Append log level if doesn't exist
