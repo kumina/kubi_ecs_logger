@@ -362,7 +362,7 @@ class Logger:
         if self._dev:
             pprint(BaseSchema().dump(self._base), output_destination=sys.stdout)
         else:
-            print(BaseSchema().dumps(self._base), file=sys.stdout)
+            sys.stdout.write((BaseSchema().dumps(self._base))+'\n')
 
     def __append_log_level(self, severity_level: Severity):
         # Append log level if doesn't exist

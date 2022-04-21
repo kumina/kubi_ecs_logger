@@ -87,4 +87,4 @@ Logger() \
 ## Dependencies
 | name        | version |
 |-------------|---------|
-| marshmallow | 3.6.1   |
+| marshmallow | 3.15.0  |
