@@ -53,6 +53,6 @@ class BaseSchema(RootSchema):
         from .include import INCLUDE_FIELDS
         self.declared_fields.update(INCLUDE_FIELDS)
 
-    labels = fields.Dict(allow_none=False, skip_if=None)
+    labels = fields.Dict(allow_none=False, metadata={'skip_if': None})
     message = fields.String(allow_none=True)
     tags = fields.List(fields.String(), allow_none=True)
